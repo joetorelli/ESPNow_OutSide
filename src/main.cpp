@@ -19,7 +19,7 @@ typedef struct struct_message {
   float c;
   String d;
   bool e;
-} ;   //struct_message;
+} struct_message;
 
 // Create a struct_message called myData
 struct_message myData;
@@ -70,6 +70,16 @@ void loop()
   myData.c = 1.2;
   myData.d = "Hello";
   myData.e = false;
+if(myData.b % 2)
+{
+
+  myData.e = false;
+
+}
+else
+{
+  myData.e = true;
+}
 
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
